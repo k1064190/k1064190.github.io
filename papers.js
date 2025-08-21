@@ -65,10 +65,26 @@ class PaperManager {
             return;
         }
 
-        filteredPapers.forEach((paper, index) => {
+        let currentYear = null;
+        let animationIndex = 0;
+
+        filteredPapers.forEach((paper) => {
+            // Add year divider if year changes
+            if (paper.year !== currentYear) {
+                currentYear = paper.year;
+                const yearDivider = document.createElement("div");
+                yearDivider.className = "year-divider";
+                yearDivider.innerHTML = `
+                    <div class="year-line"></div>
+                    <span class="year-label">${currentYear}</span>
+                `;
+                grid.appendChild(yearDivider);
+            }
+
             const card = this.createPaperCard(paper);
             // Add staggered animation
-            card.style.animationDelay = `${index * 0.1}s`;
+            card.style.animationDelay = `${animationIndex * 0.1}s`;
+            animationIndex++;
             grid.appendChild(card);
         });
     }
