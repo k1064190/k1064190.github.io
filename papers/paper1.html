@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            MAVL: A Multilingual Audio-Video Lyrics Dataset for Animated Song
+            Translation - Woohyun Cho
+        </title>
+        <link rel="stylesheet" href="../style.css" />
+        <link rel="stylesheet" href="../paper-detail.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="../index.html" class="nav-logo">Woohyun Cho</a>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="../index.html#home" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../index.html#about" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../index.html#publications" class="nav-link"
+                            >Publications</a
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <a href="../index.html#contact" class="nav-link"
+                            >Contact</a
+                        >
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+
+        <section class="paper-header">
+            <div class="container">
+                <div class="paper-title-section">
+                    <h1 class="paper-title">
+                        MAVL: A Multilingual Audio-Video Lyrics Dataset for
+                        Animated Song Translation
+                    </h1>
+                    <p class="paper-authors">
+                        <b>Woohyun Cho</b>, Youngmin Kim, Sunghyun Lee, Youngjae
+                        Yu
+                    </p>
+                    <p class="paper-venue">Under Review</p>
+                    <div class="paper-links" data-paper-id="paper1">
+                        <!-- Links will be loaded dynamically from papers-data.js -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="paper-content">
+            <div class="container">
+                <!-- Abstract Section -->
+                <div class="paper-section">
+                    <h2 class="section-heading">Abstract</h2>
+                    <p class="abstract-text">
+                        Lyrics translation requires both accurate semantic transfer and preservation of musical rhythm, syllabic structure, and poetic style. In animated musicals, the challenge intensifies due to alignment with visual and auditory cues. We introduce Multilingual Audio-Video Lyrics Benchmark for Animated Song Translation (<strong><code>MAVL</code></strong>), the first multilingual, multimodal benchmark for singable lyrics translation. By integrating text, audio, and video, MAVL enables richer and more expressive translations than text-only approaches. Building on this, we propose Syllable-Constrained Audio-Video LLM with Chain-of-Thought (<strong><code>SylAVL-CoT</code></strong>), which leverages audio-video cues and enforces syllabic constraints to produce natural-sounding lyrics. Experimental results demonstrate that <strong><code>SylAVL-CoT</code></strong> significantly outperforms text-based models in singability and contextual accuracy, emphasizing the value of multimodal, multilingual approaches for lyrics translation.
+                    </p>
+                </div>
+
+                <!-- Overview Section -->
+                <div class="paper-section">
+                    <h2 class="section-heading">Dataset Overview</h2>
+                    <div class="figure-container">
+                        <img
+                            src="paper1_media/mavl-figure.png"
+                            alt="MAVL Benchmark Overview"
+                        />
+                        <p class="figure-caption">
+                            Figure 1: Overview of MAVL Benchmark. This lyric example is part of the OST “Get Back up Again” from
+“Troll”, produced by Disney Corporation. the left illustrates MAVL Dataset components (music, multilingual human
+lyrics). The right compares translation outputs, showing our audio-visual SylAVL-CoT produces more vivid and
+human-like results than text-only models.
+                        </p>
+                    </div>
+                    <p class="section-text">
+                        MAVL addresses the critical challenge of singable lyrics
+                        translation by incorporating multimodal information. Our
+                        benchmark includes <strong>228 English songs</strong> from animated
+                            musicals and their singable translations in Spanish,
+                            French, Korean, Japanese.
+                    </p>
+
+                    <!-- MAVL Dataset Statistics Table -->
+                    <table
+                        style="
+                            margin: 2rem auto;
+                            border-collapse: collapse;
+                            width: 90%;
+                            font-size: 0.95em;
+                        "
+                    >
+                        <caption style="margin-bottom: 1rem; font-weight: 600">
+                            Table 1: Statistics of the MAVL Benchmark Dataset
+                        </caption>
+                        <thead>
+                            <tr style="background-color: #f3f4f6">
+                                <th
+                                    style="
+                                        padding: 0.75rem;
+                                        text-align: left;
+                                        border-bottom: 2px solid #e5e7eb;
+                                        border-top: 2px solid #e5e7eb;
+                                    "
+                                >
+                                    Language
+                                </th>
+                                <th
+                                    style="
+                                        padding: 0.75rem;
+                                        text-align: center;
+                                        border-bottom: 2px solid #e5e7eb;
+                                        border-top: 2px solid #e5e7eb;
+                                    "
+                                >
+                                    # Songs
+                                </th>
+                                <th
+                                    style="
+                                        padding: 0.75rem;
+                                        text-align: center;
+                                        border-bottom: 2px solid #e5e7eb;
+                                        border-top: 2px solid #e5e7eb;
+                                    "
+                                >
+                                    # Videos
+                                </th>
+                                <th
+                                    style="
+                                        padding: 0.75rem;
+                                        text-align: center;
+                                        border-bottom: 2px solid #e5e7eb;
+                                        border-top: 2px solid #e5e7eb;
+                                    "
+                                >
+                                    # Sections
+                                </th>
+                                <th
+                                    style="
+                                        padding: 0.75rem;
+                                        text-align: center;
+                                        border-bottom: 2px solid #e5e7eb;
+                                        border-top: 2px solid #e5e7eb;
+                                    "
+                                >
+                                    # Lines
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td
+                                    style="
+                                        padding: 0.75rem;
+                                        border-bottom: 1px dashed #e5e7eb;
+                                        font-weight: 500;
+                                    "
+                                >
+                                    English
+                                </td>
+                                <td
+                                    style="
+                                        padding: 0.75rem;
+                                        text-align: center;
+                                        border-bottom: 1px dashed #e5e7eb;
+                                    "
+                                >
+                                    228
+                                </td>
+                                <td
+                                    style="
+                                        padding: 0.75rem;
+                                        text-align: center;
+                                        border-bottom: 1px dashed #e5e7eb;
+                                    "
+                                >
+                                    228
+                                </td>
+                                <td
+                                    style="
+                                        padding: 0.75rem;
+                                        text-align: center;
+                                        border-bottom: 1px dashed #e5e7eb;
+                                    "
+                                >
+                                    1,923
+                                </td>
+                                <td
+                                    style="
+                                        padding: 0.75rem;
+                                        text-align: center;
+                                        border-bottom: 1px dashed #e5e7eb;
+                                    "
+                                >
+                                    6,623
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    style="
+                                        padding: 0.75rem;
+                                        border-bottom: 1px solid #e5e7eb;
+                                    "
+                                >
+                                    Spanish
+                                </td>
+                                <td
+                                    style="
+                                        padding: 0.75rem;
+                                        text-align: center;
+                                        border-bottom: 1px solid #e5e7eb;
+                                    "
+                                >
+                                    201
+                                </td>
+                                <td
+                                    style="
+                                        padding: 0.75rem;
+                                        text-align: center;
+                                        border-bottom: 1px solid #e5e7eb;
+                                    "
+                                >
+                                    181
+                                </td>
+                                <td
+                                    style="
+                                        padding: 0.75rem;
+                                        text-align: center;
+                                        border-bottom: 1px solid #e5e7eb;
+                                    "
+                                >
+                                    1,595
+                                </td>
+                                <td
+                                    style="
+                                        padding: 0.75rem;
+                                        text-align: center;
+                                        border-bottom: 1px solid #e5e7eb;
+                                    "
+                                >
+                                    5,739
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    style="
+                                        padding: 0.75rem;
+                                        border-bottom: 1px solid #e5e7eb;
+                                    "
+                                >
+                                    French
+                                </td>
+                                <td
+                                    style="
+                                        padding: 0.75rem;
+                                        text-align: center;
+                                        border-bottom: 1px solid #e5e7eb;
+                                    "
+                                >
+                                    158
+                                </td>
+                                <td
+                                    style="
+                                        padding: 0.75rem;
+                                        text-align: center;
+                                        border-bottom: 1px solid #e5e7eb;
+                                    "
+                                >
+                                    143
+                                </td>
+                                <td
+                                    style="
+                                        padding: 0.75rem;
+                                        text-align: center;
+                                        border-bottom: 1px solid #e5e7eb;
+                                    "
+                                >
+                                    1,421
+                                </td>
+                                <td
+                                    style="
+                                        padding: 0.75rem;
+                                        text-align: center;
+                                        border-bottom: 1px solid #e5e7eb;
+                                    "
+                                >
+                                    4,821
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    style="
+                                        padding: 0.75rem;
+                                        border-bottom: 1px solid #e5e7eb;
+                                    "
+                                >
+                                    Japanese
+                                </td>
+                                <td
+                                    style="
+                                        padding: 0.75rem;
+                                        text-align: center;
+                                        border-bottom: 1px solid #e5e7eb;
+                                    "
+                                >
+                                    138
+                                </td>
+                                <td
+                                    style="
+                                        padding: 0.75rem;
+                                        text-align: center;
+                                        border-bottom: 1px solid #e5e7eb;
+                                    "
+                                >
+                                    114
+                                </td>
+                                <td
+                                    style="
+                                        padding: 0.75rem;
+                                        text-align: center;
+                                        border-bottom: 1px solid #e5e7eb;
+                                    "
+                                >
+                                    1,264
+                                </td>
+                                <td
+                                    style="
+                                        padding: 0.75rem;
+                                        text-align: center;
+                                        border-bottom: 1px solid #e5e7eb;
+                                    "
+                                >
+                                    4,280
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    style="
+                                        padding: 0.75rem;
+                                        border-bottom: 2px solid #e5e7eb;
+                                    "
+                                >
+                                    Korean
+                                </td>
+                                <td
+                                    style="
+                                        padding: 0.75rem;
+                                        text-align: center;
+                                        border-bottom: 2px solid #e5e7eb;
+                                    "
+                                >
+                                    133
+                                </td>
+                                <td
+                                    style="
+                                        padding: 0.75rem;
+                                        text-align: center;
+                                        border-bottom: 2px solid #e5e7eb;
+                                    "
+                                >
+                                    117
+                                </td>
+                                <td
+                                    style="
+                                        padding: 0.75rem;
+                                        text-align: center;
+                                        border-bottom: 2px solid #e5e7eb;
+                                    "
+                                >
+                                    1,138
+                                </td>
+                                <td
+                                    style="
+                                        padding: 0.75rem;
+                                        text-align: center;
+                                        border-bottom: 2px solid #e5e7eb;
+                                    "
+                                >
+                                    3,974
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p
+                        style="
+                            text-align: center;
+                            font-size: 0.9em;
+                            color: #6b7280;
+                            margin-top: 0.5rem;
+                        "
+                    >
+                        "# Sections" refers to sections of the lyrics, while "#
+                        Lines" denotes the individual lines within those
+                        sections.
+                    </p>
+                    <br />
+                    <p class="section-text">
+                        This multimodal approach enables models to understand
+                        not just the textual content, but also the musical
+                        rhythm, vocal expressions, and visual context that are
+                        crucial for creating singable translations.
+                    </p>
+
+                    <h3 class="subsection-heading">Dataset Collection Pipeline</h3>
+                    <div class="figure-container">
+                        <img
+                            src="paper1_media/mavl-dataset-collect.png"
+                            alt="MAVL Dataset Collection Pipeline"
+                        />
+                        <p class="figure-caption">
+                            <strong>Figure 2: MAVL dataset collection pipeline.</strong> (b) visualizes the lyric alignment process, where each color corresponds to English and Korean, respectively. This example lyrics and images are from animated musical content. For more details, refer to the Dataset Structure section.
+                        </p>
+                    </div>
+                    <p class="section-text">
+                        The MAVL dataset contains lyrics and corresponding audio-video data for 228 songs across five languages (English, Spanish, French, Japanese, and Korean), making it the first dataset to support multilingual lyric translation across three modalities. We collected metadata and original English lyrics from platforms like <a href="https://www.last.fm" target="_blank"><code>last.fm</code></a> and <a href="https://genius.com" target="_blank"><code>genius</code></a>, then gathered official dubbed versions in four target languages from <a href="https://lyricstranslate.com" target="_blank"><code>lyricstranslate</code></a>. Human annotators rigorously verified each non-English lyric against its official audio-visual release to ensure authenticity as singable dubbed versions, excluding any unverified or non-matching content. We utilized <a href="https://github.com/jianfch/stable-ts" target="_blank"><code>stable-ts</code></a>, a Whisper-based tool, to generate precise timestamps for aligning audio, video, and lyrics at the line level. This comprehensive pipeline ensures that all dataset entries contain verified, officially dubbed lyrics synchronized with their corresponding audio and video segments.
+                    </p>
+                </div>
+
+                <!-- Dataset Statistics -->
+                <div class="paper-section">
+                    <h2 class="section-heading">Dataset Structure</h2>
+                    <div class="figure-container">
+                        <img
+                            src="paper1_media/mavl-statistics.png"
+                            alt="Dataset Structure"
+                            style="max-width: 80%; height: auto"
+                        />
+                        <p class="figure-caption">
+                            Figure 3: Detailed structure of the MAVL dataset
+                        </p>
+                    </div>
+                    <p class="section-text">
+                        To comply with copyright regulations, we provide URLs rather than distributing full lyrics, and reconstruct each line using a compact representation. For English lyrics, we split lines by spaces and record the first letter of each word along with the first and last words (e.g., "Remember me though I have to say goodbye" → ["RmtIhtsg", "Remember", "goodbye"]). For Japanese lyrics, where spacing doesn't naturally separate words, we use morphological analysis tools like <a href="https://github.com/SamuraiT/mecab-python3" target="_blank">MeCab</a> to tokenize the text, then create similar compact representations to enable accurate restoration when the corresponding URL is accessed.
+                    </p>
+
+                <!-- Method Section -->
+                <div class="paper-section">
+                    <h2 class="section-heading">Method: SylAVL-CoT</h2>
+                    <h3 class="subsection-heading">
+                        Syllable-Constrained Audio-Video LLM with
+                        Chain-of-Thought
+                    </h3>
+                    <div
+                        class="figure-container"
+                        style="max-width: 100%; margin: 0 auto"
+                    >
+                        <img
+                            src="paper1_media/mavl-method.png"
+                            alt="SylAVL-CoT Method"
+                            style="width: 60%"
+                        />
+                        <p class="figure-caption">
+                            Figure 4: SylAVL-CoT pipeline for lyrics
+                            translation.This three-step process segments
+                            syllables utilizing audio, translates using video
+                            context, and iteratively refines the output to match
+                            original syllable counts.
+                        </p>
+                    </div>
+                </br>
+                    
+                    <p class="section-text">
+                        We leverage Gemini 2.0 Flash with Chain-of-Thought (CoT) reasoning to integrate multimodal cues and enforce syllable constraints. Our <strong><code>SylAVL-CoT</code></strong> follows a three-step process to ensure singable translations:
+                    </p>
+                    <ol style="margin-left: 2rem; line-height: 1.8">
+                        <li>
+                            <strong>Identify Core Lyric and Perform Syllable Segmentation:</strong>
+                            The model locates the relevant audio segment for each lyric line and segments it into syllables based on audible breaks, creating a structural template that maintains the original rhythm and singability.
+                        </li>
+                        <li>
+                            <strong>Generate Target Translation Using Video Context:</strong>
+                            Visual cues from the video (thematic elements, animation style, cultural context) guide the translation to capture not only literal meaning but also imagery and artistic nuances, while preserving the original syllable count for musical flow.
+                        </li>
+                        <li>
+                            <strong>Iterate and Refine the Translation:</strong>
+                            The model iteratively adjusts the translation through paraphrasing and reordering to achieve the target syllable count while maintaining cultural appropriateness and linguistic coherence, especially challenging when translating between languages with different structures.
+                        </li>
+                    </ol>
+                </div>
+
+                <!-- Results Section -->
+                <div class="paper-section">
+                    <h2 class="section-heading">Results</h2>
+                    <div class="figure-container">
+                        <img
+                            src="paper1_media/mavl-results1.png"
+                            alt="Qualitative Results"
+                            style="max-width: 100%; height: auto;"
+                        />
+                        <img
+                            src="paper1_media/mavl-more-qual.png"
+                            alt="More Qualitative Results"
+                            style="max-width: 100%; height: auto; margin-top: 1rem;"
+                        />
+                        <p class="figure-caption">
+                            Figure 5: Qualitative examples of SylAVL-CoT compared with baseline methods
+                        </p>
+                    </div>
+                    <p class="section-text">
+                        We present various qualitative results, as shown in Figure 5. SylAVL-CoT successfully preserves both the original meaning and syllable structure, ensuring singability across different language pairs. The examples demonstrate how our method maintains semantic coherence while adhering to rhythmic constraints, producing translations that are natural and culturally appropriate for the target language.
+                    </p>
+
+                <!-- Citation -->
+                <div class="paper-section" id="citation">
+                    <h2 class="section-heading">Citation</h2>
+                    <div class="citation-box">
+                        <pre>
+<!-- Citation will be loaded dynamically from papers-data.js --></pre>
+                        <button
+                            class="copy-citation-btn"
+                            onclick="copyCitation()"
+                        >
+                            <i class="fas fa-copy"></i> Copy Citation
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2025 Woohyun Cho. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <script src="../papers-data.js"></script>
+        <script src="../paper-detail-loader.js"></script>
+        <script src="../paper-script.js"></script>
+    </body>
+</html>

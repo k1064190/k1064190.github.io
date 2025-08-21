@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>SEAL: Entangled White-box Watermarks - Woohyun Cho</title>
+        <link rel="stylesheet" href="../style.css" />
+        <link rel="stylesheet" href="../paper-detail.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="../index.html" class="nav-logo">Woohyun Cho</a>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="../index.html#home" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../index.html#about" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../index.html#publications" class="nav-link"
+                            >Publications</a
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <a href="../index.html#contact" class="nav-link"
+                            >Contact</a
+                        >
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+
+        <section class="paper-header">
+            <div class="container">
+                <div class="paper-title-section">
+                    <h1 class="paper-title">
+                        <!-- Title will be loaded dynamically from papers-data.js -->
+                    </h1>
+                    <p class="paper-authors">
+                        <!-- Authors will be loaded dynamically from papers-data.js -->
+                    </p>
+                    <p class="paper-venue">
+                        <!-- Venue will be loaded dynamically -->
+                    </p>
+                    <div class="paper-links" data-paper-id="paper3">
+                        <!-- Links will be loaded dynamically from papers-data.js -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="paper-content">
+            <div class="container">
+                <!-- Paper content sections -->
+                <div class="paper-section">
+                    <h2 class="section-heading">Abstract</h2>
+                    <p class="abstract-text">
+                        Recently, LoRA and its variants have become the de facto
+                        strategy for training and sharing task-specific versions
+                        of large pretrained models, thanks to their efficiency
+                        and simplicity. However, the issue of copyright
+                        protection for LoRA weights, especially through
+                        watermark-based techniques, remains underexplored. To
+                        address this gap, we propose SEAL (SEcure wAtermarking
+                        on LoRA weights), the universal whitebox watermarking
+                        for LoRA. SEAL embeds a secret, non-trainable matrix
+                        between trainable LoRA weights, serving as a passport to
+                        claim ownership. SEAL then entangles the passport with
+                        the LoRA weights through training, without extra loss
+                        for entanglement, and distributes the finetuned weights
+                        after hiding the passport. When applying SEAL, we
+                        observed no performance degradation across commonsense
+                        reasoning, textual/visual instruction tuning, and
+                        text-to-image synthesis tasks. We demonstrate that SEAL
+                        is robust against a variety of known attacks: removal,
+                        obfuscation, and ambiguity attacks.
+                    </p>
+                </div>
+
+                <!-- Citation -->
+                <div class="paper-section" id="citation">
+                    <h2 class="section-heading">Citation</h2>
+                    <div class="citation-box">
+                        <pre>
+<!-- Citation will be loaded dynamically from papers-data.js --></pre>
+                        <button
+                            class="copy-citation-btn"
+                            onclick="copyCitation()"
+                        >
+                            <i class="fas fa-copy"></i> Copy Citation
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2024 Woohyun Cho. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <script src="../papers-data.js"></script>
+        <script src="../paper-detail-loader.js"></script>
+        <script src="../paper-script.js"></script>
+    </body>
+</html>

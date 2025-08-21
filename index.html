@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Woohyun Cho - Yonsei University</title>
+        <link rel="stylesheet" href="style.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="#home" class="nav-logo">Woohyun Cho</a>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#publications" class="nav-link"
+                            >Publications</a
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+
+        <section id="home" class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="profile-section">
+                        <div class="profile-image-container">
+                            <img
+                                src="profile-photo.png"
+                                alt="Profile Photo"
+                                class="profile-image"
+                            />
+                        </div>
+                        <div class="profile-info">
+                            <h1 class="hero-title">Woohyun Cho</h1>
+                            <p class="hero-subtitle">
+                                2nd Year Master's Student in Artificial
+                                Intelligence
+                            </p>
+                            <p class="hero-university">Yonsei University</p>
+                            <div class="social-links">
+                                <a
+                                    href="https://github.com/k1064190"
+                                    class="social-link"
+                                    ><i class="fab fa-github"></i
+                                ></a>
+                                <a
+                                    href="https://www.linkedin.com/in/cwhy/"
+                                    class="social-link"
+                                    ><i class="fab fa-linkedin"></i
+                                ></a>
+                                <a
+                                    href="mailto:k106419@yonsei.ac.kr"
+                                    class="social-link"
+                                    ><i class="fas fa-envelope"></i
+                                ></a>
+                                <a
+                                    href="https://scholar.google.com/citations?user=QTlDDUAAAAAJ"
+                                    class="social-link"
+                                    ><i class="fas fa-graduation-cap"></i
+                                ></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <p>
+                        I am a passionate AI researcher currently pursuing my
+                        Master's degree at Yonsei University. As a second-year
+                        graduate student, my research focuses on the
+                        intersection of multimodal large language models (LLMs)
+                        and speech processing technologies. I am particularly
+                        interested in enhancing LLM reasoning capabilities,
+                        developing advanced automatic speech recognition (ASR)
+                        and text-to-speech (TTS) systems, and pioneering the
+                        integration of speech and language models for real-time
+                        applications.
+                    </p>
+                    <p>
+                        My work aims to bridge the gap between different
+                        modalities in AI, creating systems that can understand
+                        and process information as naturally as humans do. I am
+                        dedicated to advancing these technologies through
+                        innovative research and collaboration with fellow
+                        researchers in the field.
+                    </p>
+                    <div class="research-interests">
+                        <h3>Research Interests</h3>
+                        <div class="interest-tags">
+                            <span class="interest-tag"
+                                ><i class="fas fa-brain"></i> Multimodal
+                                LLM</span
+                            >
+                            <span class="interest-tag"
+                                ><i class="fas fa-lightbulb"></i>
+                                Reasoning</span
+                            >
+                            <span class="interest-tag"
+                                ><i class="fas fa-microphone"></i> Speech
+                                Processing</span
+                            >
+                            <span class="interest-tag"
+                                ><i class="fas fa-volume-up"></i> ASR &
+                                TTS</span
+                            >
+                            <span class="interest-tag"
+                                ><i class="fas fa-link"></i> Speech-LLM
+                                Integration</span
+                            >
+                            <span class="interest-tag"
+                                ><i class="fas fa-clock"></i> Real-Time Speech
+                                Processing</span
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="publications" class="publications">
+            <div class="container">
+                <h2 class="section-title">Publications</h2>
+                <div class="filter-container">
+                    <button class="filter-btn active" data-filter="all">
+                        All
+                    </button>
+                    <button class="filter-btn" data-filter="multimodal">
+                        Multimodal
+                    </button>
+                    <button class="filter-btn" data-filter="speech">
+                        Speech
+                    </button>
+                    <button class="filter-btn" data-filter="reasoning">
+                        Reasoning
+                    </button>
+                    <button class="filter-btn" data-filter="realtime">
+                        Real-Time
+                    </button>
+                    <button class="filter-btn" data-filter="etc">Others</button>
+                </div>
+                <div id="publication-grid" class="publication-grid">
+                    <!-- Papers will be loaded dynamically from paper-data.js file -->
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Contact</h2>
+                <div class="contact-content">
+                    <p>
+                        Feel free to reach out for collaborations or inquiries
+                    </p>
+                    <a href="mailto:k106419@yonsei.ac.kr" class="contact-email"
+                        >k106419@yonsei.ac.kr</a
+                    >
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2025 Woohyun Cho. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <script src="script.js"></script>
+        <script src="papers-data.js"></script>
+        <script src="papers.js"></script>
+    </body>
+</html>
