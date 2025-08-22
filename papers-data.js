@@ -48,7 +48,7 @@ const PAPERS_DATA = [
         authors:
             "Giyeong Oh, Saejin Kim, <b>Woohyun Cho</b>, Sangkyu Lee, Jiwan Chung, Dokyung Song, Youngjae Yu",
         venue: "Under Review",
-        year: 2024,
+        year: 2025,
         categories: ["Others"],
         abstract:
             "Recently, LoRA and its variants have become the de facto strategy for training and sharing task-specific versions of large pretrained models, thanks to their efficiency and simplicity. However, the issue of copyright protection for LoRA weights, especially through watermark-based techniques, remains underexplored. To address this gap, we propose SEAL (SEcure wAtermarking on LoRA weights), the universal whitebox watermarking for LoRA. SEAL embeds a secret, non-trainable matrix between trainable LoRA weights, serving as a passport to claim ownership. SEAL then entangles the passport with the LoRA weights through training, without extra loss for entanglement, and distributes the finetuned weights after hiding the passport. When applying SEAL, we observed no performance degradation across commonsense reasoning, textual/visual instruction tuning, and text-to-image synthesis tasks. We demonstrate that SEAL is robust against a variety of known attacks: removal, obfuscation, and ambiguity attacks.",
@@ -56,7 +56,7 @@ const PAPERS_DATA = [
         detailPage: "papers/paper3.html",
         links: {
             paper: "https://arxiv.org/abs/2501.09284",
-            bibtex: "@inproceedings{oh2024seal,\n  title={SEAL: Entangled White-box Watermarks on Low-Rank Adaptation},\n  author={Giyeong Oh and Saejin Kim and Woohyun Cho and Sangkyu Lee and Jiwan Chung and Dokyung Song and Youngjae Yu},\n  booktitle={Conference Name},\n  year={2024}\n}",
+            bibtex: "@misc{oh2025sealentangledwhiteboxwatermarks,\n  title={SEAL: Entangled White-box Watermarks on Low-Rank Adaptation},\n  author={Giyeong Oh and Saejin Kim and Woohyun Cho and Sangkyu Lee and Jiwan Chung and Dokyung Song and Youngjae Yu},\n  year={2025},\n  eprint={2501.09284},\n  archivePrefix={arXiv},\n  primaryClass={cs.AI},\n  url={https://arxiv.org/abs/2501.09284}\n}",
         },
         highlight: false,
         order: 3,
