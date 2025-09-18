@@ -27,7 +27,7 @@ const PAPERS_DATA = [
         title: "Revisiting Residual Connections: Orthogonal Updates for Stable and Efficient Deep Networks",
         authors:
             "Giyeong Oh, <b>Woohyun Cho</b>, Siyeol Kim, Suhwan Choi, Youngjae Yu",
-        venue: "Under Review",
+        venue: "Neurips 2025",
         year: 2025,
         categories: ["Others"],
         abstract:
