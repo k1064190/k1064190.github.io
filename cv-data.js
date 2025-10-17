@@ -10,7 +10,7 @@ const CV_PAGE_DATA = {
         previewType: "pdf",
         previewSrc: "assets/cv/woohyun-cho-cv.pdf",
         downloadHref: "assets/cv/woohyun-cho-cv.pdf",
-        fileSizeBytes: 1940,
+        fileSizeBytes: 0,
         updatedAt: "2025-10-18",
     },
     portfolioDocument: {
@@ -21,7 +21,7 @@ const CV_PAGE_DATA = {
         previewType: "pdf",
         previewSrc: "assets/portfolio/woohyun-cho-portfolio.pdf",
         downloadHref: "assets/portfolio/woohyun-cho-portfolio.pdf",
-        fileSizeBytes: 1445,
+        fileSizeBytes: 0,
         updatedAt: "2025-10-18",
     },
 };

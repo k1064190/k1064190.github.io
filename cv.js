@@ -11,6 +11,7 @@ class CvPortfolioRenderer {
     constructor(data, root = document) {
         this.data = data;
         this.root = root;
+        this.fileSizeCache = new Map();
         this.heroElements = {
             updated: this.root.getElementById("primary-updated"),
             description: this.root.getElementById("primary-description"),
@@ -74,6 +75,7 @@ class CvPortfolioRenderer {
         }
         if (elements.filesize) {
             elements.filesize.textContent = this.formatFileSize(fileSizeBytes);
+            this.updateFileSize(downloadHref, elements.filesize);
         }
     }
 
@@ -115,7 +117,7 @@ class CvPortfolioRenderer {
      */
     formatFileSize(bytes) {
         if (typeof bytes !== "number" || Number.isNaN(bytes) || bytes <= 0) {
-            return "Unknown size";
+            return "Calculating size…";
         }
         if (bytes < 1024) {
             return `${bytes} B`;
@@ -152,6 +154,39 @@ class CvPortfolioRenderer {
             .filter(Boolean)
             .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
             .join(" ");
+    }
+
+    updateFileSize(path, targetNode) {
+        if (!path) return;
+        if (this.fileSizeCache.has(path)) {
+            targetNode.textContent = this.formatFileSize(this.fileSizeCache.get(path));
+            return;
+        }
+
+        fetch(path)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch ${path}: ${response.status}`);
+                }
+                const lengthHeader = response.headers.get("Content-Length");
+                if (lengthHeader) {
+                    const parsedLength = Number(lengthHeader);
+                    if (!Number.isNaN(parsedLength) && parsedLength > 0) {
+                        this.fileSizeCache.set(path, parsedLength);
+                        targetNode.textContent = this.formatFileSize(parsedLength);
+                        return null;
+                    }
+                }
+                return response.blob().then((blob) => {
+                    this.fileSizeCache.set(path, blob.size);
+                    targetNode.textContent = this.formatFileSize(blob.size);
+                    return null;
+                });
+            })
+            .catch((error) => {
+                console.warn(`Unable to determine file size for ${path}`, error);
+                targetNode.textContent = "Unknown size";
+            });
     }
 }
 
