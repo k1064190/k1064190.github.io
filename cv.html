@@ -1,0 +1,135 @@
+<!-- ABOUTME: Dedicated CV and portfolio showcase page -->
+<!-- ABOUTME: Provides inline previews and download access for key documents -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Woohyun Cho - CV &amp; Portfolio</title>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="cv.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html#home" class="nav-logo">Woohyun Cho</a>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html#home" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#cv" class="nav-link" aria-current="page"
+                            >CV &amp; Portfolio</a
+                        >
+                    </li>
+                </ul>
+                <div class="hamburger" aria-label="Toggle navigation" role="button">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+
+        <main>
+            <section id="cv" class="cv-hero" aria-labelledby="cv-title">
+                <div class="cv-hero-container container">
+                    <div class="cv-hero-copy">
+                        <p class="eyebrow" id="primary-updated">Updated —</p>
+                        <h1 id="cv-title">Curriculum Vitae (CV)</h1>
+                        <p class="lead" id="primary-description">
+                            Access the latest curriculum vitae and explore the case studies that
+                            highlight ongoing multimodal reasoning and speech intelligence work.
+                        </p>
+                        <div class="cta-group">
+                            <a
+                                id="primary-download"
+                                class="cta-button primary"
+                                href="#"
+                                download
+                                aria-label="Download current CV as PDF"
+                                >Download CV</a
+                            >
+                        </div>
+                        <ul class="document-meta">
+                            <li>
+                                <span class="meta-label">File size</span>
+                                <span class="meta-value" id="primary-filesize">—</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="cv-preview">
+                        <iframe
+                            id="primary-preview"
+                            src=""
+                            title="Inline preview of Woohyun Cho curriculum vitae"
+                            loading="lazy"
+                        ></iframe>
+                        <p class="preview-caption">
+                            Inline preview renders the opening page. Use the download button above for
+                            full offline access.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="portfolio" class="portfolio-hero" aria-labelledby="portfolio-title">
+                <div class="portfolio-hero-container container">
+                    <div class="portfolio-hero-copy">
+                        <p class="eyebrow" id="portfolio-updated">Updated —</p>
+                        <h1 id="portfolio-title">Portfolio</h1>
+                        <p class="lead" id="portfolio-description">
+                            Access consolidated case studies covering multimodal datasets, deployment stories, and evaluation rubrics.
+                        </p>
+                        <div class="cta-group">
+                            <a
+                                id="portfolio-download"
+                                class="cta-button primary"
+                                href="#"
+                                download
+                                aria-label="Download consolidated portfolio as PDF"
+                                >Download Portfolio</a
+                            >
+                        </div>
+                        <ul class="document-meta">
+                            <li>
+                                <span class="meta-label">File size</span>
+                                <span class="meta-value" id="portfolio-filesize">—</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="portfolio-preview">
+                        <iframe
+                            id="portfolio-preview"
+                            src=""
+                            title="Inline preview of Woohyun Cho portfolio PDF"
+                            loading="lazy"
+                        ></iframe>
+                        <p class="preview-caption">
+                            Inline preview displays the opening spread. Use the download button above for
+                            the complete portfolio document.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2025 Woohyun Cho. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <script src="script.js"></script>
+        <script src="cv-data.js"></script>
+        <script src="cv.js"></script>
+    </body>
+</html>
